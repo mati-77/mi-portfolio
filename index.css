@@ -23,6 +23,12 @@ html {
     scroll-behavior: smooth;
 }
 
+.titulo-seccion {
+    font-size: var(--titulo-seccion);
+    max-width: 640px;
+    margin: 0 auto 4rem auto;
+}
+
 @keyframes deslizamiento-titulo {
     0% {
         transform: translateX(-100px);
@@ -46,31 +52,7 @@ html {
     }
 }
 
-
-/* .navbar {
-    z-index: 2;
-    display: flex;
-    justify-content: flex-end;
-    position: fixed;
-    width: 100%;
-    background: var(--rojo);
-}
-
-.navbar-links {
-    display: flex;
-}
-
-ul {
-    list-style: none;
-}
-
-.navbar-links a {
-    display: block;
-    font-size: 2.2rem;
-    padding: 1.5rem;
-    text-decoration: none;
-    color: var(--blanco)
-} */
+/*Sección de bienvenida*/
 
 .bienvenida {
     display: flex;
@@ -106,18 +88,14 @@ ul {
     animation-fill-mode: forwards;
 }
 
+/*Seccion de proyectos*/
+
 .seccion-proyectos {
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 2rem;
     background: var(--azul);
-}
-
-.titulo-seccion {
-    font-size: var(--titulo-seccion);
-    max-width: 640px;
-    margin: 0 auto 4rem auto;
 }
 
 .contenedor-proyectos {
@@ -168,7 +146,7 @@ ul {
 }
 
 
-/*Estilos de la sección de contacto*/
+/*Sección de contacto*/
 
 .seccion-contacto {
     background: var(--gris);
@@ -201,6 +179,7 @@ ul {
     transform: scale(1.1);
 }
 
+/*Media queries*/
 
 @media screen and (min-width: 700px) {
     .contenedor-proyectos {
