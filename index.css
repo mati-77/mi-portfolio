@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
 :root {
     --blanco: #f0f0f0;
     --rojo: #be3144;
@@ -6,6 +8,7 @@
     --titulo-seccion: 3.5rem;
     --titulo-proyecto: 3rem;
     --descripcion-proyecto : 1.8rem;
+    --fuente-enlace: 2.5rem;
 }
 
 * {
@@ -16,34 +19,55 @@
 }
 html {
     font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+@keyframes deslizamiento-titulo {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes deslizamiento-titulo-italica {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 
-.nav {
+.navbar {
+    z-index: 2;
     display: flex;
     justify-content: flex-end;
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     background: var(--rojo);
-    box-shadow: 0 2px 0 rgb(0 0 0 / 40%);
-    z-index: 10;
 }
 
-.nav-list {
+.navbar-links {
     display: flex;
-    margin-right: 2rem;
 }
 
 ul {
     list-style: none;
 }
 
-.nav-list a {
+.navbar-links a {
     display: block;
     font-size: 2.2rem;
-    padding: 2rem;
+    padding: 1.5rem;
     text-decoration: none;
     color: var(--blanco)
 }
@@ -61,14 +85,25 @@ ul {
 .bienvenida h1 {
     font-size: 5rem;
     text-align: start;
+    animation-name: deslizamiento-titulo;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    
 }
 
-.bienvenida p {
+.bienvenida h2 {
+    visibility: hidden;
     font-size: 3rem;
     font-weight: 200;
     font-style: italic;
     color: var(--rojo);
     text-align: end;
+    animation-name: deslizamiento-titulo-italica;
+    animation-duration: 1.5s;
+    animation-delay: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 
 .seccion-proyectos {
@@ -79,10 +114,10 @@ ul {
     background: var(--azul);
 }
 
-.seccion-proyectos-titulo {
-    font-size: 3.5rem;
+.titulo-seccion {
+    font-size: var(--titulo-seccion);
     max-width: 640px;
-    margin: 0 auto 6rem auto;
+    margin: 0 auto 4rem auto;
 }
 
 .contenedor-proyectos {
@@ -94,16 +129,23 @@ ul {
 
 .proyecto {
     background: var(--gris);
-    box-shadow: 1px 1px 2px rgb(0 0 0 / 50%);
-    border-radius: 2px;
+    border-radius: 2rem;
     text-decoration: none;
     margin-bottom: 4rem;
     width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+.proyecto:hover {
+    box-shadow: 1px 1px #53a7ea, 2px 2px #53a7ea, 3px 3px #53a7ea;
+    transform: translate(-3px, -3px);
 }
 
 .proyecto-imagen {
     width: 100%;
     object-fit: cover;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
 }
 
 .informacion-proyecto {
@@ -124,6 +166,41 @@ ul {
     font-size: var(--descripcion-proyecto);
     margin-bottom: 1.5rem;
 }
+
+
+/*Estilos de la sección de contacto*/
+
+.seccion-contacto {
+    background: var(--gris);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.contenedor-enlaces {
+    font-size: var(--fuente-enlace);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 980px;
+    flex-wrap: wrap;
+}
+
+.enlace {
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.enlace:hover {
+    transform: scale(1.1);
+}
+
 
 @media screen and (min-width: 700px) {
     .contenedor-proyectos {
